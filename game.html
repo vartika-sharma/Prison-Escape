@@ -1,0 +1,252 @@
+<html>
+<head>
+	<script src="jquery-3.3.1.min.js">
+		$(document).keydown(docReady()
+			{
+				alert("Handle called");
+			});
+	</script>
+	<script>
+		  var post = 20;
+		  var posr = 20;
+		  var posl = 0;
+		function myMoveDown() 
+		{
+			var elem = document.getElementById("animate");
+			var id = setInterval(frame, 5);
+			var x = post+180;
+		    function frame() 
+		    {
+		        if (post == x || post >=540) 
+		        {
+		        	if(post<540)
+		        		deductt();
+		            clearInterval(id);
+		        } 
+		        else 
+		        {
+		        	post++;
+		            elem.style.top =  post +'px';
+		            
+		        }
+		    }
+		} 
+		function myMoveRight()
+		{
+			var elem = document.getElementById("animate");
+		    var id = setInterval(frame, 5);
+		    var x = posr + 250;
+		    function frame() 
+		    {
+		        if (posr >= x || posr>= 750) 
+		        {
+		        	if(posr<750)
+		        		deductr();
+		            clearInterval(id);
+		        } 
+		        else 
+		        {
+		            posr++;
+		            posl--;
+		            elem.style.left = posr +'px';
+		            elem.style.right = posl +'px';
+		        }
+		    }
+		}
+		function deductt()
+		{
+			var ctrl = document.getElementById("score");
+			var score = ctrl.getElementsByTagName('p')[0].innerHTML; 
+			console.log("dfsd");
+		}
+		function dedductr()
+		{
+
+		}
+		function moveSelection(evt)
+		{
+            switch (evt.keyCode) 
+            {
+                case 37:
+                myMoveLeft();
+                break;
+                case 39:
+                myMoveRight();
+                break;
+                case 38:
+                myMoveUp();
+                break;
+                case 40:
+                myMoveDown();
+                break;
+            }
+        };
+        var fire = false;
+        document.onkeydown = function()
+        {
+        	
+        	if(fire = false)
+        	{
+        		fire = true;
+        		docReady();
+        	}
+        }
+        document.onkeyup = function()
+        {
+        	fire = false;
+        }
+        function docReady()
+        {
+          window.addEventListener('keydown', moveSelection);
+        }
+	</script>
+</head>
+<style type="text/css">
+	.clearfix1 { display: inline-block; 
+		}
+	.clearfix2 {display: inline-block;}
+	.row {
+	    margin: 0 ;
+	    width: 40%;
+	}
+	.col1 {
+		display: inline-block;
+	}
+	.col2 {
+		margin-top: 100px;
+		display: inline-block;
+	}
+	.a
+	{
+		position: relative;
+		display: inline-block;
+		margin-top: 0px;
+		margin-left: 20px;
+		width: 10%;
+		height: 10%;
+	}
+	.b
+	{
+		position: relative;
+		display: inline-block;
+		margin-top:0px;
+		margin-left : 200px;
+		width: 10%;
+		height: 10%;
+	}
+	.c
+	{
+		position: relative;
+		display: inline-block;
+		margin-top:0px;
+		margin-left : 0px;
+		width: 10%;
+		height: 10%;
+	}
+	.d
+	{
+		position: relative;
+		display: inline-block;
+		margin-top:0px;
+		margin-left: 200px;
+		width: 10%;
+		height: 10%;
+	}
+	.child{
+		position: absolute;
+		top: 40px;
+		left: 20px;
+	}
+	.scoreboard{
+		position: absolute;
+		color: black;
+		top : 40px;
+		right: 20px;
+		width:40px;
+		height: 40px;
+		background: rgb(250,250,250);
+	}
+</style>
+<body style="background: rgb(0,0,0);" onload="docReady()" onkeydown="" onkeyup="" >
+<div class="scoreboard">
+	<p id="score">50</p>
+</div>
+<div class="row clearfix1" >
+	<div class = "col1">
+		<div id="1" class= "a" >
+			
+			<img src="prison.jpg" width="100%" height="100%">
+			<div class="child" id="animate" >
+			<img style="position: relative;" src="prisoner.jpeg" width="50%" height="50%">
+			</div>
+		</div>
+		<div id="2" class="b">
+			<img src="prison.jpg" width="100%" height="100%">
+		</div>
+	</div>
+	<div class= "col2">
+		<div id="3" class="c">
+			<img src="prison.jpg" width="100%" height="100%">
+		</div>
+		<div id="4" class = "d">
+			<img src="prison.jpg" width="100%" height="100%">
+		</div> 
+	</div>
+</div>
+<div class="row clearfix2">
+	<div class = "col1">
+		<div id="5" class= "a" >
+			<img src="prison.jpg" width="100%" height="100%">
+		</div>
+		<div id="6" class="b">
+			<img src="prison.jpg" width="100%" height="100%">
+		</div>
+	</div>
+	<div class= "col2">
+		<div id="7" class="c">
+			<img src="prison.jpg" width="100%" height="100%">
+		</div>
+		<div id="8" class = "d">
+			<img src="prison.jpg" width="100%" height="100%">
+		</div> 
+	</div>
+</div>
+<div class="row clearfix1" style="margin-top: 100px;">
+	<div class = "col1">
+		<div id="9" class= "a" >
+			<img src="prison.jpg" width="100%" height="100%">
+		</div>
+		<div id="10" class="b">
+			<img src="prison.jpg" width="100%" height="100%">
+		</div>
+	</div>
+	<div class= "col2">
+		<div id="11" class="c">
+			<img src="prison.jpg" width="100%" height="100%">
+		</div>
+		<div id="12" class = "d">
+			<img src="prison.jpg" width="100%" height="100%">
+		</div> 
+	</div>
+</div>
+<div class="row clearfix2">
+	<div class = "col1">
+		<div id="13" class= "a" >
+			<img src="prison.jpg" width="100%" height="100%">
+		</div>
+		<div id="14" class="b">
+			<img src="prison.jpg" width="100%" height="100%">
+		</div>
+	</div>
+	<div class= "col2">
+		<div id="15" class="c">
+			<img src="prison.jpg" width="100%" height="100%">
+		</div>
+		<div id="16" class = "d">
+			<img src="prison.jpg" width="100%" height="100%">
+		</div> 
+	</div>
+</div>
+
+</body>
+</html>
